@@ -1,0 +1,852 @@
+[
+  {
+    "id": 1,
+    "category": "Operations",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What is the result of 5 + 3 * 2 in Python?",
+    "options": ["A) 16", "B) 11", "C) 13", "D) 10"],
+    "correct": "B",
+    "explanation": "Multiplication has higher precedence: 3*2=6, then 5+6=11"
+  },
+  {
+    "id": 2,
+    "category": "Operations",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "Which operator is used for exponentiation in Python?",
+    "options": ["A) ^", "B) **", "C) ^^", "D) pow"],
+    "correct": "B",
+    "explanation": "** is the exponentiation operator in Python"
+  },
+  {
+    "id": 3,
+    "category": "Operations",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What does 10 // 3 return in Python?",
+    "options": ["A) 3.33", "B) 3", "C) 4", "D) 3.0"],
+    "correct": "B",
+    "explanation": "// is floor division, returns integer 3"
+  },
+  {
+    "id": 4,
+    "category": "Operations",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What is the result of 10 % 3?",
+    "options": ["A) 1", "B) 3", "C) 0", "D) 10"],
+    "correct": "A",
+    "explanation": "% is modulo operator, 10 divided by 3 has remainder 1"
+  },
+  {
+    "id": 5,
+    "category": "Operations",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "Which operator checks if two values are equal?",
+    "options": ["A) =", "B) ==", "C) ===", "D) equals"],
+    "correct": "B",
+    "explanation": "== checks equality, = is assignment"
+  },
+  {
+    "id": 6,
+    "category": "Conditionals",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What keyword is used for 'else if' in Python?",
+    "options": ["A) elseif", "B) else if", "C) elif", "D) elsif"],
+    "correct": "C",
+    "explanation": "Python uses elif for else-if conditions"
+  },
+  {
+    "id": 7,
+    "category": "Conditionals",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "Which symbol ends an if statement line in Python?",
+    "options": ["A) ;", "B) :", "C) {}", "D) end"],
+    "correct": "B",
+    "explanation": "Python uses : to end conditional statements"
+  },
+  {
+    "id": 8,
+    "category": "Loops",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "Which loop iterates over a sequence in Python?",
+    "options": ["A) while", "B) for", "C) do-while", "D) foreach"],
+    "correct": "B",
+    "explanation": "for loop is used to iterate over sequences"
+  },
+  {
+    "id": 9,
+    "category": "Loops",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What keyword exits a loop immediately?",
+    "options": ["A) exit", "B) stop", "C) break", "D) end"],
+    "correct": "C",
+    "explanation": "break exits the loop immediately"
+  },
+  {
+    "id": 10,
+    "category": "Loops",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What does range(5) generate?",
+    "options": ["A) 1,2,3,4,5", "B) 0,1,2,3,4", "C) 0,1,2,3,4,5", "D) 1,2,3,4"],
+    "correct": "B",
+    "explanation": "range(5) generates 0 to 4 (5 numbers starting from 0)"
+  },
+  {
+    "id": 11,
+    "category": "Classes",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What keyword creates a class in Python?",
+    "options": ["A) class", "B) Class", "C) def", "D) object"],
+    "correct": "A",
+    "explanation": "class keyword is used to define classes"
+  },
+  {
+    "id": 12,
+    "category": "Classes",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What is the first parameter of a class method?",
+    "options": ["A) this", "B) self", "C) me", "D) cls"],
+    "correct": "B",
+    "explanation": "self is the first parameter referring to the instance"
+  },
+  {
+    "id": 13,
+    "category": "Data Structures",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "Which data structure is mutable in Python?",
+    "options": ["A) tuple", "B) string", "C) list", "D) int"],
+    "correct": "C",
+    "explanation": "Lists are mutable, can be modified after creation"
+  },
+  {
+    "id": 14,
+    "category": "Data Structures",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "How do you create an empty dictionary?",
+    "options": ["A) []", "B) {}", "C) ()", "D) dict[]"],
+    "correct": "B",
+    "explanation": "{} creates an empty dictionary"
+  },
+  {
+    "id": 15,
+    "category": "Functions",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What keyword defines a function in Python?",
+    "options": ["A) function", "B) def", "C) func", "D) define"],
+    "correct": "B",
+    "explanation": "def keyword is used to define functions"
+  },
+  {
+    "id": 16,
+    "category": "Functions",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What does a function return if no return statement is specified?",
+    "options": ["A) 0", "B) None", "C) False", "D) Empty string"],
+    "correct": "B",
+    "explanation": "Functions return None by default if no return statement"
+  },
+  {
+    "id": 17,
+    "category": "Strings",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "How do you get the length of a string 'hello'?",
+    "options": ["A) hello.length()", "B) len(hello)", "C) hello.size()", "D) length(hello)"],
+    "correct": "B",
+    "explanation": "len() function returns the length of a string"
+  },
+  {
+    "id": 18,
+    "category": "Strings",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What does 'hello'.upper() return?",
+    "options": ["A) hello", "B) HELLO", "C) Hello", "D) hELLO"],
+    "correct": "B",
+    "explanation": "upper() converts all characters to uppercase"
+  },
+  {
+    "id": 19,
+    "category": "Variables",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "Which is a valid variable name in Python?",
+    "options": ["A) 2var", "B) var-name", "C) var_name", "D) var name"],
+    "correct": "C",
+    "explanation": "Variable names can contain underscores but not start with numbers or contain spaces/hyphens"
+  },
+  {
+    "id": 20,
+    "category": "Variables",
+    "difficulty": "easy",
+    "points": 100,
+    "time": 30,
+    "question": "What is the type of variable x = 5.0?",
+    "options": ["A) int", "B) float", "C) double", "D) decimal"],
+    "correct": "B",
+    "explanation": "Numbers with decimal points are float type"
+  },
+  {
+    "id": 21,
+    "category": "Operations",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is the result of 'Hello' * 3?",
+    "options": ["A) Error", "B) HelloHelloHello", "C) Hello3", "D) 3Hello"],
+    "correct": "B",
+    "explanation": "String * number repeats the string"
+  },
+  {
+    "id": 22,
+    "category": "Operations",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What does the 'is' operator check?",
+    "options": ["A) Equality", "B) Identity (same object)", "C) Type", "D) Value"],
+    "correct": "B",
+    "explanation": "'is' checks if two variables point to same object"
+  },
+  {
+    "id": 23,
+    "category": "Operations",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "Evaluate: not (True and False) or True",
+    "options": ["A) True", "B) False", "C) Error", "D) None"],
+    "correct": "A",
+    "explanation": "not (False) or True = True or True = True"
+  },
+  {
+    "id": 24,
+    "category": "Operations",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is [1, 2] + [3, 4]?",
+    "options": ["A) [4, 6]", "B) [1, 2, 3, 4]", "C) Error", "D) [[1,2],[3,4]]"],
+    "correct": "B",
+    "explanation": "+ concatenates lists"
+  },
+  {
+    "id": 25,
+    "category": "Conditionals",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is 'A' if 0 else 'B'?",
+    "options": ["A) A", "B) B", "C) 0", "D) Error"],
+    "correct": "B",
+    "explanation": "0 is falsy, so returns 'B'"
+  },
+  {
+    "id": 26,
+    "category": "Conditionals",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is the output: x = []; if x: print('Yes') else: print('No')",
+    "options": ["A) Yes", "B) No", "C) Error", "D) []"],
+    "correct": "B",
+    "explanation": "Empty list is falsy, prints 'No'"
+  },
+  {
+    "id": 27,
+    "category": "Loops",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "for i in range(3): if i == 1: continue; print(i). What prints?",
+    "options": ["A) 0 1 2", "B) 0 2", "C) 1 2", "D) 0 1"],
+    "correct": "B",
+    "explanation": "Skips i=1, prints 0 and 2"
+  },
+  {
+    "id": 28,
+    "category": "Loops",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What does 'for i in range(2, 8, 2)' generate?",
+    "options": ["A) 2,4,6", "B) 2,4,6,8", "C) 2,3,4,5,6,7", "D) 0,2,4,6"],
+    "correct": "A",
+    "explanation": "range(start, stop, step): 2, 4, 6 (stops before 8)"
+  },
+  {
+    "id": 29,
+    "category": "Loops",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is enumerate() used for?",
+    "options": ["A) Count items", "B) Get index and value", "C) Sort items", "D) Filter items"],
+    "correct": "B",
+    "explanation": "enumerate() returns index and value pairs"
+  },
+  {
+    "id": 30,
+    "category": "Classes",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is inheritance in OOP?",
+    "options": [
+      "A) Copying code",
+      "B) Class inherits from another",
+      "C) Sharing variables",
+      "D) Method overloading"
+    ],
+    "correct": "B",
+    "explanation": "Inheritance allows class to inherit from parent class"
+  },
+  {
+    "id": 31,
+    "category": "Classes",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "How to call parent class method?",
+    "options": [
+      "A) parent.method()",
+      "B) super().method()",
+      "C) base.method()",
+      "D) this.method()"
+    ],
+    "correct": "B",
+    "explanation": "super() accesses parent class methods"
+  },
+  {
+    "id": 32,
+    "category": "Data Structures",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What does dict.get('key', 'default') do if key doesn't exist?",
+    "options": ["A) Error", "B) Returns 'default'", "C) Returns None", "D) Returns empty string"],
+    "correct": "B",
+    "explanation": "get() returns the default value if key not found"
+  },
+  {
+    "id": 33,
+    "category": "Data Structures",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is the difference between list.append() and list.extend()?",
+    "options": [
+      "A) No difference",
+      "B) append adds one item, extend adds multiple",
+      "C) extend is faster",
+      "D) append is deprecated"
+    ],
+    "correct": "B",
+    "explanation": "append() adds single element, extend() adds all elements from iterable"
+  },
+  {
+    "id": 34,
+    "category": "Data Structures",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What does set([1,2,2,3,3,3]) return?",
+    "options": ["A) [1,2,3]", "B) {1,2,3}", "C) [1,2,2,3,3,3]", "D) Error"],
+    "correct": "B",
+    "explanation": "Sets automatically remove duplicates"
+  },
+  {
+    "id": 35,
+    "category": "Functions",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is *args in a function definition?",
+    "options": [
+      "A) Required argument",
+      "B) Variable number of arguments",
+      "C) Keyword argument",
+      "D) Default argument"
+    ],
+    "correct": "B",
+    "explanation": "*args allows function to accept any number of positional arguments"
+  },
+  {
+    "id": 36,
+    "category": "Functions",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is **kwargs used for?",
+    "options": [
+      "A) Multiple returns",
+      "B) Keyword arguments",
+      "C) Default values",
+      "D) Type hints"
+    ],
+    "correct": "B",
+    "explanation": "**kwargs allows function to accept any number of keyword arguments"
+  },
+  {
+    "id": 37,
+    "category": "Functions",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is a lambda function?",
+    "options": [
+      "A) Named function",
+      "B) Anonymous function",
+      "C) Class method",
+      "D) Built-in function"
+    ],
+    "correct": "B",
+    "explanation": "lambda creates anonymous (unnamed) functions"
+  },
+  {
+    "id": 38,
+    "category": "Strings",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What does 'hello world'.split() return?",
+    "options": [
+      "A) 'hello', 'world'",
+      "B) ['hello', 'world']",
+      "C) ('hello', 'world')",
+      "D) {'hello', 'world'}"
+    ],
+    "correct": "B",
+    "explanation": "split() returns a list of strings"
+  },
+  {
+    "id": 39,
+    "category": "Strings",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What is the result of 'abc'.replace('a', 'x')?",
+    "options": ["A) 'abc'", "B) 'xbc'", "C) 'abx'", "D) Error"],
+    "correct": "B",
+    "explanation": "replace() substitutes all occurrences of first arg with second"
+  },
+  {
+    "id": 40,
+    "category": "Error Handling",
+    "difficulty": "medium",
+    "points": 200,
+    "time": 40,
+    "question": "What keyword is used to catch exceptions?",
+    "options": ["A) catch", "B) except", "C) error", "D) handle"],
+    "correct": "B",
+    "explanation": "except keyword catches exceptions in try-except blocks"
+  },
+  {
+    "id": 41,
+    "category": "Operations",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "Explain: a = [1]; b = a; b.append(2). What is a?",
+    "options": ["A) [1]", "B) [1, 2]", "C) Error", "D) [2]"],
+    "correct": "B",
+    "explanation": "b references same list as a, both are [1, 2]"
+  },
+  {
+    "id": 42,
+    "category": "Operations",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the difference between == and is?",
+    "options": [
+      "A) No difference",
+      "B) == value, is identity",
+      "C) == identity, is value",
+      "D) Both check value"
+    ],
+    "correct": "B",
+    "explanation": "== checks value equality, is checks object identity"
+  },
+  {
+    "id": 43,
+    "category": "Operations",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What does {1,2,3} & {2,3,4} return?",
+    "options": ["A) {1,2,3,4}", "B) {2,3}", "C) Error", "D) {1,4}"],
+    "correct": "B",
+    "explanation": "& is set intersection, returns common elements"
+  },
+  {
+    "id": 44,
+    "category": "Operations",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is 'abc'[::-1]?",
+    "options": ["A) abc", "B) cba", "C) Error", "D) acb"],
+    "correct": "B",
+    "explanation": "[::-1] reverses the string"
+  },
+  {
+    "id": 45,
+    "category": "Conditionals",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is truthy vs falsy in Python?",
+    "options": [
+      "A) True vs False only",
+      "B) Values that evaluate to True/False",
+      "C) 1 vs 0",
+      "D) Strings vs numbers"
+    ],
+    "correct": "B",
+    "explanation": "Truthy: non-zero, non-empty. Falsy: 0, None, empty"
+  },
+  {
+    "id": 46,
+    "category": "Conditionals",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "Can you use assignment in if condition?",
+    "options": ["A) No", "B) Yes with := (walrus)", "C) Yes with =", "D) Only in Python 2"],
+    "correct": "B",
+    "explanation": "Walrus operator := allows assignment in expressions"
+  },
+  {
+    "id": 47,
+    "category": "Conditionals",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is short-circuit evaluation?",
+    "options": [
+      "A) Fast execution",
+      "B) Stop evaluating when result known",
+      "C) Skip else",
+      "D) Optimize code"
+    ],
+    "correct": "B",
+    "explanation": "and/or stop evaluating once result is determined"
+  },
+  {
+    "id": 48,
+    "category": "Loops",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is list comprehension?",
+    "options": [
+      "A) Loop syntax",
+      "B) Create list in one line",
+      "C) List method",
+      "D) Import statement"
+    ],
+    "correct": "B",
+    "explanation": "[x for x in range(5)] creates list in one line"
+  },
+  {
+    "id": 49,
+    "category": "Loops",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What does 'else' do with loops?",
+    "options": [
+      "A) Error",
+      "B) Runs if loop completes without break",
+      "C) Runs if break",
+      "D) Same as after loop"
+    ],
+    "correct": "B",
+    "explanation": "Loop else runs only if no break occurred"
+  },
+  {
+    "id": 50,
+    "category": "Loops",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the difference between break and return in loop?",
+    "options": [
+      "A) Same thing",
+      "B) break exits loop, return exits function",
+      "C) return exits loop",
+      "D) break exits function"
+    ],
+    "correct": "B",
+    "explanation": "break exits loop only, return exits entire function"
+  },
+  {
+    "id": 51,
+    "category": "Classes",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is polymorphism?",
+    "options": [
+      "A) Multiple classes",
+      "B) Same interface, different implementations",
+      "C) Inheritance",
+      "D) Encapsulation"
+    ],
+    "correct": "B",
+    "explanation": "Polymorphism: same method name, different behavior"
+  },
+  {
+    "id": 52,
+    "category": "Classes",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What does __str__ method do?",
+    "options": [
+      "A) Convert to string",
+      "B) String representation",
+      "C) Print object",
+      "D) All of above"
+    ],
+    "correct": "D",
+    "explanation": "__str__ defines string representation for print/str()"
+  },
+  {
+    "id": 53,
+    "category": "Classes",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the difference between @classmethod and @staticmethod?",
+    "options": [
+      "A) No difference",
+      "B) classmethod gets cls, staticmethod gets nothing",
+      "C) staticmethod is private",
+      "D) classmethod is faster"
+    ],
+    "correct": "B",
+    "explanation": "classmethod receives cls, staticmethod receives no special parameter"
+  },
+  {
+    "id": 54,
+    "category": "Data Structures",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the time complexity of list.append()?",
+    "options": ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
+    "correct": "A",
+    "explanation": "append() is O(1) amortized constant time"
+  },
+  {
+    "id": 55,
+    "category": "Data Structures",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What does collections.defaultdict do?",
+    "options": [
+      "A) Creates empty dict",
+      "B) Dict with default values for missing keys",
+      "C) Sorted dict",
+      "D) Immutable dict"
+    ],
+    "correct": "B",
+    "explanation": "defaultdict provides default value for non-existent keys"
+  },
+  {
+    "id": 56,
+    "category": "Data Structures",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the difference between shallow copy and deep copy?",
+    "options": [
+      "A) No difference",
+      "B) Shallow copies references, deep copies values",
+      "C) Deep is faster",
+      "D) Shallow is deprecated"
+    ],
+    "correct": "B",
+    "explanation": "Shallow copy copies references, deep copy recursively copies all nested objects"
+  },
+  {
+    "id": 57,
+    "category": "Functions",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is a closure in Python?",
+    "options": [
+      "A) Closed function",
+      "B) Function that remembers enclosing scope",
+      "C) Private function",
+      "D) Nested class"
+    ],
+    "correct": "B",
+    "explanation": "Closure is a function that captures variables from enclosing scope"
+  },
+  {
+    "id": 58,
+    "category": "Functions",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is a decorator?",
+    "options": [
+      "A) Design pattern",
+      "B) Function that modifies another function",
+      "C) Class attribute",
+      "D) Import statement"
+    ],
+    "correct": "B",
+    "explanation": "Decorator is a function that wraps and modifies another function"
+  },
+  {
+    "id": 59,
+    "category": "Functions",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the difference between map() and filter()?",
+    "options": [
+      "A) No difference",
+      "B) map transforms, filter selects",
+      "C) filter is faster",
+      "D) map is deprecated"
+    ],
+    "correct": "B",
+    "explanation": "map() applies function to all items, filter() selects items matching condition"
+  },
+  {
+    "id": 60,
+    "category": "Advanced",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is a generator in Python?",
+    "options": [
+      "A) Random number creator",
+      "B) Function that yields values lazily",
+      "C) Class factory",
+      "D) Import tool"
+    ],
+    "correct": "B",
+    "explanation": "Generator yields values one at a time using yield keyword"
+  },
+  {
+    "id": 61,
+    "category": "Advanced",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What does the 'with' statement do?",
+    "options": [
+      "A) Imports module",
+      "B) Context manager for resource handling",
+      "C) Loop construct",
+      "D) Conditional statement"
+    ],
+    "correct": "B",
+    "explanation": "with statement ensures proper resource cleanup using context managers"
+  },
+  {
+    "id": 62,
+    "category": "Advanced",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the Global Interpreter Lock (GIL)?",
+    "options": [
+      "A) Security feature",
+      "B) Mutex preventing parallel Python execution",
+      "C) Import lock",
+      "D) Memory manager"
+    ],
+    "correct": "B",
+    "explanation": "GIL is a mutex that allows only one thread to execute Python bytecode at a time"
+  },
+  {
+    "id": 63,
+    "category": "Strings",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the difference between str.format() and f-strings?",
+    "options": [
+      "A) No difference",
+      "B) f-strings are faster and more readable",
+      "C) format() is newer",
+      "D) f-strings are deprecated"
+    ],
+    "correct": "B",
+    "explanation": "f-strings (Python 3.6+) are faster and more concise than format()"
+  },
+  {
+    "id": 64,
+    "category": "Error Handling",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What is the purpose of 'finally' in try-except?",
+    "options": [
+      "A) Catches all errors",
+      "B) Always executes regardless of exception",
+      "C) Prevents errors",
+      "D) Logs errors"
+    ],
+    "correct": "B",
+    "explanation": "finally block always executes, whether exception occurred or not"
+  },
+  {
+    "id": 65,
+    "category": "Error Handling",
+    "difficulty": "hard",
+    "points": 300,
+    "time": 50,
+    "question": "What does 'raise' keyword do?",
+    "options": [
+      "A) Catches exception",
+      "B) Throws/raises an exception",
+      "C) Logs error",
+      "D) Ignores error"
+    ],
+    "correct": "B",
+    "explanation": "raise keyword explicitly throws an exception"
+  }
+]

@@ -1,0 +1,690 @@
+<div class="game-container">
+  <!-- Notification Toast -->
+  @if (showNotification()) {
+    <div class="notification-toast">
+      {{ notification() }}
+    </div>
+  }
+
+  <!-- Setup Screen -->
+  @if (gameState() === 'setup') {
+    <div class="setup-screen">
+      <h1>🎮 BCpET 1203</h1>
+      <p class="subtitle">Python Programming Challenge</p>
+
+      <div class="setup-form">
+        <div class="form-group">
+          <label>Number of Teams (2-6)</label>
+          <input
+            type="number"
+            [(ngModel)]="numTeams"
+            min="2"
+            max="6"
+            (change)="updateTeamCount()"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Number of Rounds</label>
+          <select [(ngModel)]="totalRounds">
+            <option [value]="5">5 Rounds</option>
+            <option [value]="7">7 Rounds</option>
+            <option [value]="10">10 Rounds</option>
+          </select>
+        </div>
+
+        <div class="team-names">
+          @for (name of teamNames(); track $index) {
+            <div class="form-group">
+              <label>Team {{ $index + 1 }} Name</label>
+              <input
+                type="text"
+                [(ngModel)]="teamNames()[$index]"
+                [placeholder]="'Team ' + ($index + 1)"
+              />
+            </div>
+          }
+        </div>
+
+        <button class="btn-primary" (click)="startGame()">Start Game</button>
+      </div>
+    </div>
+  }
+
+  <!-- Power-Up Test Screen -->
+  @if (gameState() === 'powerup-test') {
+    <div class="powerup-test-screen">
+      <div class="test-header">
+        <h1>⚡ POWER-UPS FOR THIS GAME ⚡</h1>
+        <p class="test-subtitle">All teams get the same power-ups - use them wisely!</p>
+      </div>
+
+      <div class="shared-powerups">
+        <h2>Available Power-Ups (Everyone Gets These)</h2>
+        <div class="powerup-grid">
+          @for (powerUp of teams()[0].powerUps; track powerUp.id) {
+            <div class="powerup-preview-card">
+              <span class="preview-icon-large">{{ powerUp.icon }}</span>
+              <div class="preview-info-large">
+                <strong>{{ powerUp.name }}</strong>
+                <p>{{ powerUp.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="teams-ready">
+        <h3>Teams Playing:</h3>
+        <div class="team-badges">
+          @for (team of teams(); track team.id) {
+            <div class="team-badge" [style.background-color]="team.color">
+              {{ team.name }}
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="test-actions">
+        <button class="btn-primary btn-large" (click)="startPlaying()">🎮 START GAME 🎮</button>
+      </div>
+    </div>
+  }
+
+  <!-- Loading Screen with Floating Stars -->
+  <!-- @if (gameState() === 'loading') { -->
+  @if (gameState() === 'setup') {
+    <div class="loading-screen">
+      <h1 class="loading-title">GET READY!</h1>
+      <div class="stars-container">
+        <svg class="star star-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FFD700"
+            stroke="#FFA500"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FF6B6B"
+            stroke="#D32F2F"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#4CAF50"
+            stroke="#2E7D32"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#2196F3"
+            stroke="#1565C0"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-5" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#9C27B0"
+            stroke="#6A1B9A"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-6" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FF9800"
+            stroke="#E65100"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-7" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#00BCD4"
+            stroke="#0097A7"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#E91E63"
+            stroke="#C2185B"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-9" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FFEB3B"
+            stroke="#F57F17"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#3F51B5"
+            stroke="#1A237E"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-11" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#8BC34A"
+            stroke="#558B2F"
+            stroke-width="3"
+          />
+        </svg>
+        <svg class="star star-12" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FF5722"
+            stroke="#BF360C"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-13 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FFD700"
+            stroke="#FFA500"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-14 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#00BCD4"
+            stroke="#0097A7"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-15 star-medium"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#E91E63"
+            stroke="#C2185B"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-16 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#4CAF50"
+            stroke="#2E7D32"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-17 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FF9800"
+            stroke="#E65100"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-18 star-medium"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#9C27B0"
+            stroke="#6A1B9A"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-19 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#2196F3"
+            stroke="#1565C0"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-20 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FFEB3B"
+            stroke="#F57F17"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-21 star-medium"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FF6B6B"
+            stroke="#D32F2F"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-22 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#4CAF50"
+            stroke="#2E7D32"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-23 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#2196F3"
+            stroke="#1565C0"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-24 star-medium"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#9C27B0"
+            stroke="#6A1B9A"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-25 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FF9800"
+            stroke="#E65100"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-26 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#00BCD4"
+            stroke="#0097A7"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-27 star-medium"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#E91E63"
+            stroke="#C2185B"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-28 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FFEB3B"
+            stroke="#F57F17"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-29 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#3F51B5"
+            stroke="#1A237E"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-30 star-medium"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#8BC34A"
+            stroke="#558B2F"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-31 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FF5722"
+            stroke="#BF360C"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-32 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#FFD700"
+            stroke="#FFA500"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-33 star-medium"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#00BCD4"
+            stroke="#0097A7"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-34 star-small"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#E91E63"
+            stroke="#C2185B"
+            stroke-width="3"
+          />
+        </svg>
+        <svg
+          class="star star-35 star-large"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,10 61,40 92,40 67,59 78,90 50,70 22,90 33,59 8,40 39,40"
+            fill="#4CAF50"
+            stroke="#2E7D32"
+            stroke-width="3"
+          />
+        </svg>
+      </div>
+      <p class="loading-text">Shuffling cards...</p>
+    </div>
+  }
+
+  <!-- Difficulty Reveal Screen -->
+  @if (gameState() === 'difficulty-reveal' && currentQuestion()) {
+    <div class="difficulty-reveal-screen">
+      <div class="reveal-content">
+        <h1 class="reveal-title">YOU GOT</h1>
+        <div class="difficulty-badge-large" [class]="currentQuestion()!.difficulty">
+          {{ currentQuestion()!.difficulty.toUpperCase() }}
+        </div>
+        <div class="points-display">{{ currentQuestion()!.points }} POINTS</div>
+        <div class="time-display">⏰ {{ timeRemaining() }} SECONDS</div>
+        <button class="btn-start-left" (click)="startQuestion()">▶ START</button>
+      </div>
+    </div>
+  }
+
+  <!-- Playing Screen - Card Grid -->
+  @if (gameState() === 'playing') {
+    <div class="game-screen">
+      <div class="game-header">
+        <h2>BCpET 1203</h2>
+        <div class="round-info">Round {{ currentRound() }} of {{ totalRounds() }}</div>
+      </div>
+
+      <div class="team-scores">
+        @for (team of teams(); track team.id) {
+          <div
+            class="team-card"
+            [style.border-color]="team.color"
+            [class.active]="team.id === getCurrentTeam().id"
+          >
+            <div class="team-name" [style.color]="team.color">{{ team.name }}</div>
+            <div class="team-score">{{ team.score }} pts</div>
+            <div class="team-effects">
+              @for (effect of team.activeEffects; track effect.type) {
+                <span class="effect-badge" [title]="effect.type">{{ effect.icon }}</span>
+              }
+              @if (team.streak >= 3) {
+                <span class="streak-badge" title="Streak Bonus!">🔥x2</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="current-turn">
+        <div class="turn-indicator" [style.background-color]="getCurrentTeam().color">
+          {{ getCurrentTeam().name }}'s Turn
+        </div>
+      </div>
+
+      <div class="card-grid">
+        @for (cardIndex of getTotalCards(); track cardIndex) {
+          @if (availableCards().includes(cardIndex)) {
+            <div class="mystery-card" (click)="selectCard(cardIndex)">
+              <div class="card-front">?</div>
+            </div>
+          } @else {
+            <div class="mystery-card used"></div>
+          }
+        }
+      </div>
+
+      <div class="power-ups-section">
+        <h3>Power-Ups</h3>
+        <div class="power-ups">
+          @for (powerUp of getCurrentTeam().powerUps; track powerUp.id) {
+            <button
+              class="power-up-btn"
+              (click)="usePowerUp(powerUp)"
+              [title]="powerUp.description"
+            >
+              <span class="power-icon">{{ powerUp.icon }}</span>
+              <span class="power-name">{{ powerUp.name }}</span>
+            </button>
+          }
+          @if (getCurrentTeam().powerUps.length === 0) {
+            <p class="no-powerups">No power-ups remaining</p>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Question Screen -->
+  @if (gameState() === 'question' && currentQuestion()) {
+    <div class="question-screen">
+      <div class="question-header">
+        <div class="difficulty-badge" [class]="currentQuestion()!.difficulty">
+          {{ currentQuestion()!.category }} - {{ currentQuestion()!.points }} Points
+        </div>
+        <div class="timer" [class.warning]="timeRemaining() <= 10">⏰ {{ timeRemaining() }}s</div>
+      </div>
+
+      <div class="question-content">
+        <h2>{{ currentQuestion()!.question }}</h2>
+
+        <div class="options">
+          @for (option of currentQuestion()!.options; track option) {
+            @if (!hiddenOptions().includes(option.charAt(0))) {
+              <button
+                class="option-btn"
+                [class.selected]="selectedAnswer() === option.charAt(0)"
+                (click)="selectedAnswer.set(option.charAt(0))"
+              >
+                {{ option }}
+              </button>
+            }
+          }
+        </div>
+
+        <!-- Power-ups available during question -->
+        @if (getCurrentTeam().powerUps.length > 0) {
+          <div class="question-powerups">
+            <h4>Quick Power-Ups:</h4>
+            <div class="power-ups-inline">
+              @for (powerUp of getCurrentTeam().powerUps; track powerUp.id) {
+                @if (
+                  powerUp.id === 'fifty-fifty' || powerUp.id === 'swap' || powerUp.id === 'lifeline'
+                ) {
+                  <button
+                    class="power-up-btn-small"
+                    (click)="usePowerUp(powerUp)"
+                    [title]="powerUp.description"
+                  >
+                    <span class="power-icon-small">{{ powerUp.icon }}</span>
+                    <span class="power-name-small">{{ powerUp.name }}</span>
+                  </button>
+                }
+              }
+            </div>
+          </div>
+        }
+
+        <button class="btn-submit" (click)="submitAnswer()" [disabled]="!selectedAnswer()">
+          Submit Answer
+        </button>
+      </div>
+    </div>
+  }
+
+  <!-- Result Screen -->
+  @if (gameState() === 'result' && currentQuestion()) {
+    <div class="result-screen">
+      @if (isCorrect()) {
+        <div class="result-correct">
+          <div class="result-icon">✅</div>
+          <h2>Correct!</h2>
+          <p class="points-earned">+{{ currentQuestion()!.points }} points</p>
+        </div>
+      } @else {
+        <div class="result-wrong">
+          <div class="result-icon">❌</div>
+          <h2>Wrong!</h2>
+          <p>The correct answer was: {{ currentQuestion()!.correct }}</p>
+        </div>
+      }
+
+      <div class="explanation">
+        <strong>Explanation:</strong>
+        <p>{{ currentQuestion()!.explanation }}</p>
+      </div>
+
+      <button class="btn-primary" (click)="nextTurn()">Next Turn</button>
+    </div>
+  }
+
+  <!-- Finished Screen -->
+  @if (gameState() === 'finished') {
+    <div class="finished-screen">
+      <h1>🏆 Game Over!</h1>
+
+      <div class="winner-announcement">
+        <h2 [style.color]="getWinner().color">{{ getWinner().name }} Wins!</h2>
+        <p class="winner-score">{{ getWinner().score }} points</p>
+      </div>
+
+      <div class="final-scores">
+        <h3>Final Scores</h3>
+        @for (team of getSortedTeams(); track team.id) {
+          <div class="final-team" [style.border-color]="team.color">
+            <span class="final-name" [style.color]="team.color">{{ team.name }}</span>
+            <span class="final-score">{{ team.score }} pts</span>
+          </div>
+        }
+      </div>
+
+      <button class="btn-primary" (click)="restartGame()">Play Again</button>
+    </div>
+  }
+
+  <!-- Target Selection Modal -->
+  @if (showTargetModal()) {
+    <div class="modal-overlay" (click)="showTargetModal.set(false)">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <h3>Select Target Team</h3>
+        <div class="target-teams">
+          @for (team of teams(); track team.id) {
+            @if (team.id !== getCurrentTeam().id) {
+              <button
+                class="target-btn"
+                (click)="selectTarget(team.id)"
+                [style.border-color]="team.color"
+              >
+                <span [style.color]="team.color">{{ team.name }}</span>
+                <span class="target-score">{{ team.score }} pts</span>
+              </button>
+            }
+          }
+        </div>
+        <button class="btn-cancel" (click)="showTargetModal.set(false)">Cancel</button>
+      </div>
+    </div>
+  }
+</div>
