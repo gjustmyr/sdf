@@ -56,7 +56,7 @@ export class QuizGameComponent {
     | 'question'
     | 'result'
     | 'finished'
-  >('setup');
+  >('loading');
   teams = signal<Team[]>([]);
   currentTeamIndex = signal(0);
   currentRound = signal(1);
@@ -99,15 +99,17 @@ export class QuizGameComponent {
   async loadQuestions() {
     try {
       console.log('Loading questions...');
-      const response = await fetch('/questions.json');
+      const response = await fetch('questions.json');
       console.log('Response status:', response.status);
       const questions = await response.json();
       console.log('Loaded questions:', questions.length);
       this.allQuestions.set(questions);
+      this.gameState.set('setup');
     } catch (error) {
       console.error('Failed to load questions:', error);
       // Fallback to empty array or show error
       this.allQuestions.set([]);
+      this.gameState.set('setup');
     }
   }
 
