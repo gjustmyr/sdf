@@ -509,9 +509,6 @@
               @for (effect of team.activeEffects; track effect.type) {
                 <span class="effect-badge" [title]="effect.type">{{ effect.icon }}</span>
               }
-              @if (team.streak >= 3) {
-                <span class="streak-badge" title="Streak Bonus!">🔥x2</span>
-              }
             </div>
           </div>
         }

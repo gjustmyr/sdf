@@ -21,7 +21,6 @@ interface Team {
   score: number;
   powerUps: PowerUp[];
   activeEffects: Effect[];
-  streak: number;
 }
 
 interface PowerUp {
@@ -204,11 +203,13 @@ export class QuizGameComponent {
         score: 0,
         powerUps: [...gamePowerUps], // Same power-ups for everyone
         activeEffects: [],
-        streak: 0,
       });
     }
 
-    this.teams.set(teams);
+    // Randomize the turn order for fairness
+    const shuffledTeams = teams.sort(() => Math.random() - 0.5);
+    this.teams.set(shuffledTeams);
+
     // Calculate total questions needed based on teams and rounds
     const totalQuestions = this.numTeams() * this.totalRounds();
     this.availableCards.set(Array.from({ length: totalQuestions }, (_, i) => i));
@@ -348,11 +349,6 @@ export class QuizGameComponent {
           `${currentTeam.name} earned ${points} points (50% due to Lifeline) 💡`,
         );
       }
-    } else {
-      // Reset streak
-      const teams = this.teams();
-      teams[this.currentTeamIndex()].streak = 0;
-      this.teams.set([...teams]);
     }
 
     this.gameState.set('result');
@@ -369,9 +365,6 @@ export class QuizGameComponent {
     // Check for active multipliers and use only the highest one
     const doubleEffect = currentTeam.activeEffects.find((e) => e.type === 'double');
     const multiplierEffect = currentTeam.activeEffects.find((e) => e.type === 'multiplier');
-
-    // Increment streak first
-    currentTeam.streak++;
 
     // Determine which multiplier to use (highest wins)
     if (multiplierEffect && appliedMultiplier < 3) {
@@ -428,9 +421,15 @@ export class QuizGameComponent {
         return;
       }
       this.currentRound.set(currentRound + 1);
+
+      // Randomize turn order for the new round
+      const shuffledTeams = [...teams].sort(() => Math.random() - 0.5);
+      this.teams.set(shuffledTeams);
+      this.showNotificationMessage(`🔀 Round ${currentRound + 1} - Turn order randomized!`);
+    } else {
+      this.teams.set([...teams]);
     }
 
-    this.teams.set([...teams]);
     this.gameState.set('playing');
   }
 
